@@ -58,8 +58,9 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+     
     max-width: 100dvw;
+    min-height: 30dvh;
     max-height: 30dvh;
 }
 
