@@ -211,7 +211,40 @@
                     audioOptionsDiv.appendChild(audioOptionDiv);
                 }
             });
-        }
+        }function filterAudios() {
+    const audioOptionsDiv = document.getElementById('audioOptions');
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+
+    // Remove all existing audio options
+    audioOptionsDiv.innerHTML = '';
+
+    // Filter and add options based on the case-insensitive search input
+    const matchingAudios = audioData.filter(audio => {
+        const title = audio.title.toLowerCase();
+        const artist = audio.artist.toLowerCase();
+        return title.includes(searchInput) || artist.includes(searchInput);
+    });
+
+    if (matchingAudios.length > 0) {
+        matchingAudios.forEach(audio => {
+            const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
+            const audioOptionDiv = document.createElement('div');
+            audioOptionDiv.className = 'audio-option';
+            audioOptionDiv.textContent = optionText;
+            audioOptionDiv.onclick = function () {
+                playAudio(audio);
+            };
+            audioOptionsDiv.appendChild(audioOptionDiv);
+        });
+    } else {
+        // Display a message when no matches are found
+        const noMatchMessage = document.createElement('div');
+        noMatchMessage.className = 'no-match-message';
+        noMatchMessage.textContent = 'No matching audio found.';
+        audioOptionsDiv.appendChild(noMatchMessage);
+    }
+}
+
 
         function playAudio(selectedAudio) {
             const audioPlayer = document.getElementById('audioPlayer');
