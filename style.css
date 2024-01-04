@@ -1,11 +1,14 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
 min-height: calc(100dvh - 10dvh);
 display: grid;
 align-items: space-between;
 justify-content: center;
 width: 100vw;
-overflow-x: hidden;
+ 
 }
 
 .header{ 
@@ -52,9 +55,10 @@ audio {
 }
 
 #audioOptions{
-    width: 500px;
+    max-width: 300px;
     height: 200px;
     overflow-y: scroll;
+     
 }
 
 .audio-option{
