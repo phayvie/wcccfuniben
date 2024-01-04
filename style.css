@@ -12,9 +12,7 @@ body {
 
 h1 {
     color: #333;
-    position: fixed;
-    left: auto;
-    top: 10px;
+    
 }
 
 input {
@@ -23,9 +21,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 300px;
-    position: fixed;
-    left: auto;
-    top: 90px;
+  
 }
 
 audio {
