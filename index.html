@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Player WebApp</title>
+    <title>WCCCF UNIBEN UBTH CHAPTER</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
@@ -25,7 +25,9 @@
         </div>
     </div>
 <div class="audioPlayer">
+    <button id="hiddenPlayButton" style="display: none;" onclick="playAudio()"></button>
       <audio id="audioPlayer" controls></audio>  
+
 </div>
 
     
@@ -153,22 +155,59 @@
 }
 
 function playAudio(selectedAudio) {
-    const audioPlayer = document.getElementById('audioPlayer');
-    const selectedSongTitle = document.getElementById('selectedSongTitle');
-    const selectedArtist = document.getElementById('selectedArtist');
-    const audioInfo = document.getElementById('audioInfo');
-    audioPlayer.src = selectedAudio.url;
-    audioInfo.style.backgroundColor = '#74a4cb';
-    audioInfo.style.padding = "0.5rem";
-    audioInfo.style.width = "100%";
-    // Update the information in the container
-    selectedSongTitle.innerHTML = `<div style = "margin:0.3rem; font-weight:bold; ">NOW PLAYING</div> <p>TITLE: ${selectedAudio.title}</p>`
-    selectedArtist.textContent = `MINNISTER: ${selectedAudio.artist}`;
- 
+            const selectedSongTitle = document.getElementById('selectedSongTitle');
+            const selectedArtist = document.getElementById('selectedArtist');
+            const audioInfo = document.getElementById('audioInfo');
+            
+            // For the sake of this example, let's choose the first audio if none is selected
+            selectedAudio = selectedAudio || audioData[0];
 
-    // Start playing the audio
-    audioPlayer.play();
-}
+            audioPlayer.src = selectedAudio.url;
+            audioInfo.style.backgroundColor = '#74a4cb';
+            audioInfo.style.padding = "0.5rem";
+            audioInfo.style.width = "100%";
+
+            // Update the information in the container
+            selectedSongTitle.innerHTML = `<div style="margin: 0.3rem; font-weight: bold;">NOW PLAYING</div> <p>TITLE: ${selectedAudio.title}</p>`;
+            selectedArtist.textContent = `MINISTER: ${selectedAudio.artist}`;
+
+            // Start playing the audio
+            audioPlayer.play();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioOptionsDiv = document.getElementById('audioOptions');
+            const searchInput = document.getElementById('searchInput');
+
+            // Sort audioData by date in descending order
+            audioData.sort((a, b) => new Date(b.dateReleased) - new Date(a.dateReleased));
+
+            // Populate the div with audio titles, artists, and dateReleased
+            audioData.forEach(audio => {
+                const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
+                const audioOptionDiv = document.createElement('div');
+                audioOptionDiv.className = 'audio-option';
+                audioOptionDiv.textContent = optionText;
+                audioOptionDiv.onclick = function () {
+                    // Trigger playAudio with the clicked audio
+                    playAudio(audio);
+                };
+                audioOptionsDiv.appendChild(audioOptionDiv);
+            });
+        });
+
+        // Trigger playAudio when the page is interacted with
+        document.addEventListener('click', function() {
+            // You can customize this condition to fit your needs
+            if (!audioPlayer.paused) {
+                playAudio();
+            }
+        });
+
+        // Hide the hidden play button on mobile devices
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            hiddenPlayButton.style.display = 'none';
+        }
     </script>
 </body>
 </html>
