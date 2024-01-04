@@ -60,6 +60,7 @@ hr{
     align-items: center;
     justify-content: center;
     max-width: 100dvw;
+    max-height: 30dvh;
 }
 
 h1 {
@@ -88,15 +89,13 @@ audio{
 
 
 #audioOptions{
-    height: 200px;
+    
     overflow-y: scroll;
     max-width: 100%;
    
 }
 
-#audioOptions::-webkit-scrollbar {
-    width: 0px; /* Adjust the width as needed */
-  }
+ 
 
 .audio-option{
     margin: 1rem 0;
@@ -125,5 +124,14 @@ audio{
     font-style: italic;
     text-align: center;
 }
+
+ 
+.audio-info {
+    text-align: center;
+    margin: 10px 0;
+ 
+}
+
+ 
 
  

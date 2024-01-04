@@ -10,11 +10,16 @@
     <div class="header" id="header">
     <div class="background"></div>
     <h1>Messages</h1>
+    
     <hr>
     <input type="text" id="searchInput" placeholder="Search by message title or minister name" oninput="filterAudios()">
     </div>
 
     <div class="body">
+        <div id="audioInfo" class="audio-info">
+            <p id="selectedSongTitle"></p>
+            <p id="selectedArtist"></p>
+        </div>
         <div id="audioOptions" class="audio-options">
             
         </div>
@@ -255,14 +260,25 @@
     }
 }
 
+function playAudio(selectedAudio) {
+    const audioPlayer = document.getElementById('audioPlayer');
+    const selectedSongTitle = document.getElementById('selectedSongTitle');
+    const selectedArtist = document.getElementById('selectedArtist');
+    const audioInfo = document.getElementById('audioInfo');
+    audioPlayer.src = selectedAudio.url;
+    audioInfo.style.backgroundColor = '#74a4cb';
+    audioInfo.style.padding = "0.5rem";
+    audioInfo.style.width = "100%";
+    // Update the information in the container
+    selectedSongTitle.textContent = `Now playing: selectedAudio.title`
+    selectedArtist.textContent = `Artist: ${selectedAudio.artist}`;
 
-        function playAudio(selectedAudio) {
-            const audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.src = selectedAudio.url;
-            audioPlayer.play();
-            // Display title, artist, and dateReleased
-            alert(`Title: ${selectedAudio.title}\nArtist: ${selectedAudio.artist}\nDate Released: ${selectedAudio.dateReleased}`);
-        }
+    // Display title, artist, and dateReleased
+    alert(`Title: ${selectedAudio.title}\nArtist: ${selectedAudio.artist}\nDate Released: ${selectedAudio.dateReleased}`);
+
+    // Start playing the audio
+    audioPlayer.play();
+}
     </script>
 </body>
 </html>
