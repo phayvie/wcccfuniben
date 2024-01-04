@@ -7,20 +7,22 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
+    <div class="header">
     <h1>Messages</h1>
-
     <input type="text" id="searchInput" placeholder="Search by message title or minister name" oninput="filterAudios()">
+    </div>
 
-    <select id="audioSelect" size="5" onchange="playAudio()">
+    <div class="body">
+    <div id="audioOptions" class="audio-options">
         <!-- Options will be dynamically added here -->
-    </select>
+    </div>
 
     <audio id="audioPlayer" controls></audio>
-
+    </div>
     <script>
         const audioData = [
             {
-                title: "Audio 1https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ",
+                title: "Audio 1https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJhttps://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ",
                 artist: "Artist 1",
                 dateReleased: "2022-01-01",
                 url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
@@ -90,54 +92,128 @@
                 artist: "Artist 6",
                 dateReleased: "2022-01-01",
                 url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            },
+            {
+                title: "Audio 1https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJhttps://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ",
+                artist: "Artist 1",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
             }, 
+            {
+                title: "Audio 2",
+                artist: "Artist 2",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 3",
+                artist: "Artist 3",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 4",
+                artist: "Artist 4",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 5",
+                artist: "Artist 5",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 6",
+                artist: "Artist 6",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 1https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ",
+                artist: "Artist 1",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 2",
+                artist: "Artist 2",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 3",
+                artist: "Artist 3",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 4",
+                artist: "Artist 4",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 5",
+                artist: "Artist 5",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            }, 
+            {
+                title: "Audio 6",
+                artist: "Artist 6",
+                dateReleased: "2022-01-01",
+                url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
+            },  
             // Add more audio objects as needed
         ];
 
         document.addEventListener('DOMContentLoaded', function () {
-            const audioSelect = document.getElementById('audioSelect');
+            const audioOptionsDiv = document.getElementById('audioOptions');
             const searchInput = document.getElementById('searchInput');
 
-            // Populate the dropdown with audio titles, artists, and dateReleased
+            // Populate the div with audio titles, artists, and dateReleased
             audioData.forEach(audio => {
                 const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
-                audioSelect.options.add(new Option(optionText, JSON.stringify(audio)));
+                const audioOptionDiv = document.createElement('div');
+                audioOptionDiv.className = 'audio-option';
+                audioOptionDiv.textContent = optionText;
+                audioOptionDiv.onclick = function () {
+                    playAudio(audio);
+                };
+                audioOptionsDiv.appendChild(audioOptionDiv);
             });
-
-            // Store the original audio options for resetting
-            audioSelect.originalOptions = audioSelect.innerHTML;
         });
 
         function filterAudios() {
-            const audioSelect = document.getElementById('audioSelect');
+            const audioOptionsDiv = document.getElementById('audioOptions');
             const searchInput = document.getElementById('searchInput').value.toLowerCase();
 
-            // Reset the dropdown to the original options
-            audioSelect.innerHTML = audioSelect.originalOptions;
+            // Remove all existing audio options
+            audioOptionsDiv.innerHTML = '';
 
-            // Filter options based on the case-insensitive search input
-            for (let i = 0; i < audioSelect.options.length; i++) {
-                const audio = JSON.parse(audioSelect.options[i].value);
+            // Filter and add options based on the case-insensitive search input
+            audioData.forEach(audio => {
                 const title = audio.title.toLowerCase();
                 const artist = audio.artist.toLowerCase();
 
                 if (title.includes(searchInput) || artist.includes(searchInput)) {
-                    audioSelect.options[i].style.display = 'block';
-                } else {
-                    audioSelect.options[i].style.display = 'none';
+                    const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
+                    const audioOptionDiv = document.createElement('div');
+                    audioOptionDiv.className = 'audio-option';
+                    audioOptionDiv.textContent = optionText;
+                    audioOptionDiv.onclick = function () {
+                        playAudio(audio);
+                    };
+                    audioOptionsDiv.appendChild(audioOptionDiv);
                 }
-            }
+            });
         }
 
-        function playAudio() {
-            const audioSelect = document.getElementById('audioSelect');
+        function playAudio(selectedAudio) {
             const audioPlayer = document.getElementById('audioPlayer');
-
-            const selectedAudio = JSON.parse(audioSelect.value);
-
             audioPlayer.src = selectedAudio.url;
             audioPlayer.play();
-
             // Display title, artist, and dateReleased
             alert(`Title: ${selectedAudio.title}\nArtist: ${selectedAudio.artist}\nDate Released: ${selectedAudio.dateReleased}`);
         }
