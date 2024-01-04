@@ -7,7 +7,8 @@ min-height: calc(100dvh - 10dvh);
 display: grid;
 align-items: space-between;
 justify-content: center;
-width: 100vw;
+max-width: 100dvw;
+overflow-x: hidden; 
 }
 
 hr{
@@ -29,7 +30,7 @@ hr{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
 }
 
 #header{
@@ -38,6 +39,7 @@ hr{
     background-size: cover;
     min-height: 51dvh;
     position: relative;
+    width:100vw;
 }
 
 .background{
@@ -57,6 +59,7 @@ hr{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 100dvw;
 }
 
 h1 {
@@ -85,11 +88,15 @@ audio{
 
 
 #audioOptions{
-    min-width: 90dvw;
     height: 200px;
     overflow-y: scroll;
-    overflow-x: hidden;
+    max-width: 100%;
+   
 }
+
+#audioOptions::-webkit-scrollbar {
+    width: 0px; /* Adjust the width as needed */
+  }
 
 .audio-option{
     margin: 1rem 0;
@@ -102,7 +109,7 @@ audio{
     color: #333;
     margin-top: 10px;
     white-space: normal;
-    width: 100%;
+    overflow-wrap: break-word; 
     word-wrap: break-word;
 }
 
