@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <div class="header">
+    <div class="header" id="header">
+    <div class="background"></div>
     <h1>Messages</h1>
+    <hr>
     <input type="text" id="searchInput" placeholder="Search by message title or minister name" oninput="filterAudios()">
     </div>
 
@@ -23,6 +25,11 @@
 
     
     <script>
+
+// The date format used in the JavaScript Date constructor and many date-related operations is in the form of "year, month, day." The month is represented by a zero-based index, meaning January is 0, February is 1, and so on.
+
+// In your audioData array, the dateReleased property appears to be in the format "YYYY-MM-DD," which is a common format for representing dates. So, for example, "2022-01-15" represents January 15, 2022.
+
         const audioData = [
             {
                 title: "Audio 1https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJhttps://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ",
@@ -51,7 +58,7 @@
             {
                 title: "Audio 5",
                 artist: "Artist 5",
-                dateReleased: "2022-01-01",
+                dateReleased: "2020-01-01",
                 url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
             }, 
             {
@@ -153,7 +160,7 @@
             {
                 title: "Audio 4",
                 artist: "Artist 4",
-                dateReleased: "2022-01-01",
+                dateReleased: "2023-01-01",
                 url: "https://drive.google.com/uc?export=download&id=1J9d9BM6lA04ZB_VX9mibHi_b_4JO7SAJ"
             }, 
             {
@@ -171,23 +178,26 @@
             // Add more audio objects as needed
         ];
 
+
         document.addEventListener('DOMContentLoaded', function () {
-            const audioOptionsDiv = document.getElementById('audioOptions');
-            const searchInput = document.getElementById('searchInput');
+        const audioOptionsDiv = document.getElementById('audioOptions');
+        const searchInput = document.getElementById('searchInput');
 
-            // Populate the div with audio titles, artists, and dateReleased
-            audioData.forEach(audio => {
-                const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
-                const audioOptionDiv = document.createElement('div');
-                audioOptionDiv.className = 'audio-option';
-                audioOptionDiv.textContent = optionText;
-                audioOptionDiv.onclick = function () {
-                    playAudio(audio);
-                };
-                audioOptionsDiv.appendChild(audioOptionDiv);
-            });
+        // Sort audioData by date in descending order
+        audioData.sort((a, b) => new Date(b.dateReleased) - new Date(a.dateReleased));
+
+        // Populate the div with audio titles, artists, and dateReleased
+        audioData.forEach(audio => {
+            const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
+            const audioOptionDiv = document.createElement('div');
+            audioOptionDiv.className = 'audio-option';
+            audioOptionDiv.textContent = optionText;
+            audioOptionDiv.onclick = function () {
+                playAudio(audio);
+            };
+            audioOptionsDiv.appendChild(audioOptionDiv);
         });
-
+    });
         function filterAudios() {
             const audioOptionsDiv = document.getElementById('audioOptions');
             const searchInput = document.getElementById('searchInput').value.toLowerCase();
