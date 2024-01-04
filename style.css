@@ -1,12 +1,12 @@
 
 body{
-min-height: 100dvh;
+min-height: calc(100dvh - 10dvh);
 display: grid;
 align-items: space-between;
 justify-content: center;
 }
 
-.header{
+.header{ 
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
