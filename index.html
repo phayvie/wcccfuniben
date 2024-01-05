@@ -90,6 +90,7 @@
             audioOptionDiv.className = 'audio-option';
             audioOptionDiv.textContent = optionText;
             audioOptionDiv.onclick = function () {
+         
                 playAudio(audio);
             };
             audioOptionsDiv.appendChild(audioOptionDiv);
@@ -134,6 +135,7 @@ function playAudio(selectedAudio) {
     const selectedSongTitle = document.getElementById('selectedSongTitle');
     const selectedArtist = document.getElementById('selectedArtist');
     const audioInfo = document.getElementById('audioInfo');
+    alert("Hello, this is an alert!");
     audioPlayer.src = selectedAudio.url;
     audioInfo.style.backgroundColor = '#74a4cb';
     audioInfo.style.padding = "0.5rem";
