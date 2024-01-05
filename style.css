@@ -11,14 +11,15 @@ justify-content: center;
 max-width: 100dvw;
 overflow-x: hidden; 
 }
-
- button{
+a{
     padding: 0.1rem;
- 
-    z-index: 2;
+    z-index: 3; 
     align-self: flex-end;
- }
+    font-weight: bolder;
+}
  
+   
+    
 .header{ 
     font-family: 'Arial', sans-serif;
     margin: 0;
