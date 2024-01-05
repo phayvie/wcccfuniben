@@ -59,8 +59,8 @@ hr{
     flex-direction: column;
     align-items: center;
     max-width: 100dvw;
-    min-height: 60dvh;
-    max-height: 60dvh;
+    min-height: 55dvh;
+    max-height: 55dvh;
 }
 
 h1 {
