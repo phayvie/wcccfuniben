@@ -53,7 +53,7 @@
                 title: "A Semester of Jubilation, Restoration and Praise.",
                 artist: "Pastor Obed",
                 dateReleased: "2024-01-10",
-                url: "https://drive.google.com/uc?export=play&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
+                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
             }, 
             {
                 title: "The Children of men and the Love of Christ",
@@ -135,8 +135,7 @@ function playAudio(selectedAudio) {
     const selectedSongTitle = document.getElementById('selectedSongTitle');
     const selectedArtist = document.getElementById('selectedArtist');
     const audioInfo = document.getElementById('audioInfo');
-    alert("Hello, this is an alert!");
-    audioPlayer.src = selectedAudio.url;
+    // audioPlayer.src = selectedAudio.url;
     audioInfo.style.backgroundColor = '#74a4cb';
     audioInfo.style.padding = "0.5rem";
     audioInfo.style.width = "100%";
@@ -146,8 +145,26 @@ function playAudio(selectedAudio) {
  
 
     // Start playing the audio
-    audioPlayer.play();
+    // audioPlayer.play();
+
+     // Replace 'YOUR_AUDIO_URL' with the actual URL of your audio file
+     const audioUrl = 'https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH';
+
+// Create an audio element
+const audioElement = new Audio(audioUrl);
+
+// Display a confirmation alert
+const userConfirmed = confirm("Click 'OK' to play the audio.");
+
+// If the user clicks 'OK', initiate the audio playback
+if (userConfirmed) {
+    audioElement.play();
+} else {
+    // Handle the case when the user clicks 'Cancel' or closes the alert
+    console.log("User canceled the audio playback.");
 }
+}
+ 
     </script>
 </body>
 </html>
