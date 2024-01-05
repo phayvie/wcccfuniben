@@ -18,6 +18,11 @@ a{
     font-weight: bolder;
 }
  
+button{
+    padding: 0.1rem;
+    border-radius: 0.5%;
+    border: none;
+}
    
     
 .header{ 
