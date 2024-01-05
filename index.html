@@ -76,8 +76,7 @@
              
         ];
 
-
-        document.addEventListener('DOMContentLoaded', function () {
+ 
         const audioOptionsDiv = document.getElementById('audioOptions');
         const searchInput = document.getElementById('searchInput');
 
@@ -95,31 +94,8 @@
             };
             audioOptionsDiv.appendChild(audioOptionDiv);
         });
-    });
-        function filterAudios() {
-            const audioOptionsDiv = document.getElementById('audioOptions');
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-
-            // Remove all existing audio options
-            audioOptionsDiv.innerHTML = '';
-
-            // Filter and add options based on the case-insensitive search input
-            audioData.forEach(audio => {
-                const title = audio.title.toLowerCase();
-                const artist = audio.artist.toLowerCase();
-
-                if (title.includes(searchInput) || artist.includes(searchInput)) {
-                    const optionText = `${audio.title} - ${audio.artist} (${audio.dateReleased})`;
-                    const audioOptionDiv = document.createElement('div');
-                    audioOptionDiv.className = 'audio-option';
-                    audioOptionDiv.textContent = optionText;
-                    audioOptionDiv.onclick = function () {
-                        playAudio(audio);
-                    };
-                    audioOptionsDiv.appendChild(audioOptionDiv);
-                }
-            });
-        }function filterAudios() {
+  
+         function filterAudios() {
     const audioOptionsDiv = document.getElementById('audioOptions');
     const searchInput = document.getElementById('searchInput').value.toLowerCase();
 
