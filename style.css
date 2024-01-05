@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-min-height: calc(100dvh - 5dvh);
+min-height: calc(100dvh);
 display: grid;
 align-items: space-between;
 justify-content: center;
