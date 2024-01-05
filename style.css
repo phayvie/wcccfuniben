@@ -12,7 +12,12 @@ max-width: 100dvw;
 overflow-x: hidden; 
 }
 
+ button{
+    padding: 0.1rem;
  
+    z-index: 2;
+    align-self: flex-end;
+ }
  
 .header{ 
     font-family: 'Arial', sans-serif;
