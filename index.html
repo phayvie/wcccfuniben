@@ -135,6 +135,17 @@ function playAudio(selectedAudio) {
     const selectedSongTitle = document.getElementById('selectedSongTitle');
     const selectedArtist = document.getElementById('selectedArtist');
     const audioInfo = document.getElementById('audioInfo');
+    const audioElement = new Audio(selectedAudio.url);
+    const userConfirmed = confirm("Click 'OK' to play the audio.");
+
+// If the user clicks 'OK', initiate the audio playback
+if (userConfirmed) {
+    audioPlayer.src = selectedAudio.url;
+    
+} else {
+    // Handle the case when the user clicks 'Cancel' or closes the alert
+    console.log("User canceled the audio playback.");
+}
     // audioPlayer.src = selectedAudio.url;
     audioInfo.style.backgroundColor = '#74a4cb';
     audioInfo.style.padding = "0.5rem";
@@ -151,18 +162,18 @@ function playAudio(selectedAudio) {
      const audioUrl = 'https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH';
 
 // Create an audio element
-const audioElement = new Audio(audioUrl);
+// const audioElement = new Audio(audioUrl);
 
 // Display a confirmation alert
-const userConfirmed = confirm("Click 'OK' to play the audio.");
+// const userConfirmed = confirm("Click 'OK' to play the audio.");
 
 // If the user clicks 'OK', initiate the audio playback
-if (userConfirmed) {
-    audioElement.play();
-} else {
-    // Handle the case when the user clicks 'Cancel' or closes the alert
-    console.log("User canceled the audio playback.");
-}
+// if (userConfirmed) {
+//     audioElement.play();
+// } else {
+//     Handle the case when the user clicks 'Cancel' or closes the alert
+//     console.log("User canceled the audio playback.");
+// }
 }
  
     </script>
