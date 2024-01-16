@@ -25,9 +25,10 @@
             
         </div>
     </div>
-<div class="audioPlayer">
-      <audio id="audioPlayer" controls></audio>  
 
+ 
+<div class="audioPlayer">
+      <audio id="audioPlayer"  controls></audio>  
 </div>
 
     
@@ -37,67 +38,14 @@
 
 // In your audioData array, the dateReleased property appears to be in the format "YYYY-MM-DD," which is a common format for representing dates. So, for example, "2022-01-15" represents January 15, 2022.
 
-        const audioData = [
+        const audioData = [ 
             {
-                title: "Abundantly Able God",
-                artist: "Pastor Obinna",
-                dateReleased: "2023-01-03",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "Works of the Flesh",
-                artist: "Sis Kosi",
-                dateReleased: "2023-02-01",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "A Semester of Jubilation, Restoration and Praise.",
-                artist: "Pastor Obed",
-                dateReleased: "2024-01-10",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "The Children of men and the Love of Christ",
-                artist: "Mama Esther",
-                dateReleased: "2023-04-03",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "For God so Loved the World",
-                artist: "Mama Ruth",
-                dateReleased: "2023-05-28",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "The Prayer Altar and the Christain Life",
-                artist: "Sis Victory Imhoitske",
-                dateReleased: "2023-03-10",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "A Semester of Jubilation, Restoration and Praise.",
-                artist: "Pastor Obed",
-                dateReleased: "2024-01-10",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "The Children of men and the Love of Christ",
-                artist: "Mama Esther",
-                dateReleased: "2023-04-03",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "For God so Loved the World",
-                artist: "Mama Ruth",
-                dateReleased: "2023-05-28",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }, 
-            {
-                title: "The Prayer Altar and the Christain Life",
-                artist: "Sis Victory Imhoitske",
-                dateReleased: "2023-03-10",
-                url: "https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH"
-            }
+                title: "The Stamp of Revival", 
+                artist: "Pastor Obed Ekenechukwu",
+                dateReleased: "2024-01-15",
+                url: "https://github.com/phayvie/wcccfunibenaudio/raw/main/THE%20STAMP%20OF%20REVIVAL%20PASTOR%20OBED_15-01-24_21-20-19-279.m4a"
+            } 
+             
         ];
 
  
@@ -159,46 +107,29 @@ function playAudio(selectedAudio) {
     const selectedSongTitle = document.getElementById('selectedSongTitle');
     const selectedArtist = document.getElementById('selectedArtist');
     const audioInfo = document.getElementById('audioInfo');
-    const audioElement = new Audio(selectedAudio.url);
     const userConfirmed = confirm("Click 'OK' to play the audio.");
 
-// If the user clicks 'OK', initiate the audio playback
-if (userConfirmed) {
-    audioPlayer.src = selectedAudio.url;
-    
-} else {
-    // Handle the case when the user clicks 'Cancel' or closes the alert
-    console.log("User canceled the audio playback.");
+    // If the user clicks 'OK', initiate the audio playback
+    if (userConfirmed) {
+        // Set the source only once
+        audioPlayer.src = selectedAudio.url;
+
+        // Update the information in the container
+        selectedSongTitle.innerHTML = `<div style="margin:0.3rem; font-weight:bold;">NOW PLAYING</div> <p>TITLE: ${selectedAudio.title}</p>`;
+        selectedArtist.textContent = `MINISTER: ${selectedAudio.artist}`;
+        audioInfo.style.backgroundColor = '#74a4cb';
+        audioInfo.style.padding = "0.5rem";
+        audioInfo.style.width = "100%";
+
+        // Start playing the audio
+        console.log("play")
+        audioPlayer.play();
+    } else {
+        // Handle the case when the user clicks 'Cancel' or closes the alert
+        console.log("User canceled the audio playback.");
+    }
 }
-    // audioPlayer.src = selectedAudio.url;
-    audioInfo.style.backgroundColor = '#74a4cb';
-    audioInfo.style.padding = "0.5rem";
-    audioInfo.style.width = "100%";
-    // Update the information in the container
-    selectedSongTitle.innerHTML = `<div style = "margin:0.3rem; font-weight:bold; ">NOW PLAYING</div> <p>TITLE: ${selectedAudio.title}</p>`
-    selectedArtist.textContent = `MINISTER: ${selectedAudio.artist}`;
- 
 
-    // Start playing the audio
-    // audioPlayer.play();
-
-     // Replace 'YOUR_AUDIO_URL' with the actual URL of your audio file
-    //  const audioUrl = 'https://drive.google.com/uc?export=download&id=1Vvjinsx6UrJPOqLqrsjin8oX49pb3hGH';
-
-// Create an audio element
-// const audioElement = new Audio(audioUrl);
-
-// Display a confirmation alert
-// const userConfirmed = confirm("Click 'OK' to play the audio.");
-
-// If the user clicks 'OK', initiate the audio playback
-// if (userConfirmed) {
-//     audioElement.play();
-// } else {
-//     Handle the case when the user clicks 'Cancel' or closes the alert
-//     console.log("User canceled the audio playback.");
-// }
-}
  
     </script>
 </body>
