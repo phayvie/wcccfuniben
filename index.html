@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"> <!-- Link to the external CSS file -->
+    <script src="./script.js" defer ></script>
+    <title>WCCCF UNIBEN UBTH CHAPTER</title>
+
+</head>
+<body>
+    <div class="header" id="header">
+    <a href="./sermon/sermon.html"><button>SERMON</button></a>
+    <div class="background"></div>
+    <h1>Sermon</h1>
+    
+    <!-- <hr> -->
+    <input type="text" id="searchInput" placeholder="Search by message title or minister name" oninput="filterAudios()">
+    </div>
+
+    <div class="body">
+        <div id="audioInfo" class="audio-info">
+            <p id="selectedSongTitle"></p>
+            <p id="selectedArtist"></p>
+        </div>
+        <div id="audioOptions" class="audio-options">
+            
+        </div>
+    </div>
+
+ 
+<div class="audioPlayer">
+      <audio id="audioPlayer"  controls></audio>  
+</div>
+
+    
+</body>
+</html>
